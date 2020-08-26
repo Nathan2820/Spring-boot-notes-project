@@ -32,6 +32,9 @@ public class NotesController {
         return this.noteService.deleteNoteById(id);
     }
 
-
+    @GetMapping("/getNoteById/{id}")
+    public Note getNoteById(@PathVariable Long id) {
+        return this.noteService.findNoteById(id);
+    }
 
 }
