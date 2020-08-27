@@ -5,6 +5,7 @@ import com.qa.notes.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -39,6 +40,12 @@ public class NotesController {
 
     @PutMapping("/updateNote/{id}")
     public Note updateNote(@PathVariable Long id, @RequestBody Note note) {
+        return this.noteService.updateNote(id, note);
+    }
+
+    @PutMapping("/updateNote2")
+    public Note updateNote2(@PathParam("id") Long id, @RequestBody Note note) {
+        //localhost:8080/updateNote2?id="id"
         return this.noteService.updateNote(id, note);
     }
 
